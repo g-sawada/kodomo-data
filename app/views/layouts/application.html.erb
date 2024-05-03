@@ -18,16 +18,16 @@
           <span class='text-2xl'>This is Common Navbar</span>
         </div>
       </div>
-      <div class='grid grid-cols-6 gap-4 mt-3'>
+      <div class='grid grid-cols-5 gap-4 mt-3'>
         <div class='col-span-1 rounded-xl p-4 shadow-md bg-secondary'>
           <h2 class='text-lg font-bold mb-2'>Sidebar</h2>
           <ul class='space-y-2'>
             <li><%= link_to "Link 1", '/population' %></li>
             <li><%= link_to "おとしだま", '/otoshidama' %></li>
-            <li>Link 3</li>
+            <li><%= link_to "５０めーとるそう", '/fifty_meter' %></li>
           </ul>
         </div>
-        <div class='col-span-5 rounded-xl p-4 shadow-md bg-base-100'>
+        <div class='col-span-4 rounded-xl p-4 shadow-md bg-base-100'>
           <%= yield %>
           <div class='h-80'></div>
         </div>

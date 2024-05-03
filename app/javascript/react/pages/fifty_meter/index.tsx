@@ -50,8 +50,8 @@ import {
 
     return (
       <>    
-        <h1 className='text-4xl text-bold text-center'>５◯めーとるそう</h1>
-        <ResponsiveContainer width="100%" height="100%">
+        <h1 className='text-4xl text-bold text-center'>５０めーとるそう</h1>
+        <ResponsiveContainer height={400} minWidth={400}>
           <LineChart
             width={500}
             height={300}
