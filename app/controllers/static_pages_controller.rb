@@ -9,4 +9,8 @@ class StaticPagesController < ApplicationController
   def otoshidama
     render 'static_pages/otoshidama'
   end
+
+  def fifty_meter
+    render 'static_pages/fifty_meter'
+  end
 end
