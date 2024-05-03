@@ -35,7 +35,7 @@ import {
 
 export default function Otoshidama() {
   return (
-    <ResponsiveContainer height={600} minWidth={400}>
+    <ResponsiveContainer height={400} minWidth={400}>
       <BarChart
         width={500}
         height={300}
