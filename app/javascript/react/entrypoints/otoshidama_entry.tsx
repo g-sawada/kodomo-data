@@ -8,4 +8,4 @@ if (otoshidamaContainer) {
   otoshidamaRoot.render(<Otoshidama />);
 } else {
   console.log('Could not find otoshidama')
-}
+} 
