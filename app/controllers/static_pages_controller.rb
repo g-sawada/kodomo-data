@@ -2,7 +2,11 @@ class StaticPagesController < ApplicationController
   def index
   end
 
-  def react
-    render 'static_pages/react_test'
+  def population
+    render 'static_pages/population'
+  end
+
+  def otoshidama
+    render 'static_pages/otoshidama'
   end
 end

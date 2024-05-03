@@ -3,6 +3,7 @@
   <head>
     <title>Myapp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-visit-control" content="reload">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -21,8 +22,8 @@
         <div class='col-span-1 rounded-xl p-4 shadow-md bg-secondary'>
           <h2 class='text-lg font-bold mb-2'>Sidebar</h2>
           <ul class='space-y-2'>
-            <li>Link 1</li>
-            <li>Link 2</li>
+            <li><%= link_to "Link 1", '/population' %></li>
+            <li><%= link_to "Link 2", '/otoshidama' %></li>
             <li>Link 3</li>
           </ul>
         </div>
