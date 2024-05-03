@@ -6,4 +6,6 @@ const populationContainer = document.getElementById('population-root');
 if (populationContainer) {
   const populationRoot = createRoot(populationContainer);
   populationRoot.render(<Population />);
+} else {
+  console.log('Could not find population')
 }

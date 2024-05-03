@@ -6,4 +6,6 @@ const otoshidamaContainer = document.getElementById('otoshidama-root');
 if (otoshidamaContainer) {
   const otoshidamaRoot = createRoot(otoshidamaContainer);
   otoshidamaRoot.render(<Otoshidama />);
+} else {
+  console.log('Could not find otoshidama')
 }
