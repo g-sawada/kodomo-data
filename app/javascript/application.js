@@ -1,3 +1,5 @@
 // Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
 import "./controllers"
+import "./react/entrypoints/my_app_entry"
+
