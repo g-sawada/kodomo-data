@@ -13,4 +13,8 @@ class StaticPagesController < ApplicationController
   def fifty_meter
     render 'static_pages/fifty_meter'
   end
+
+  def future
+    render 'static_pages/future'
+  end
 end
