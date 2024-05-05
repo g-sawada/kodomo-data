@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#index"
 
-  get '/population' => 'static_pages#population'
+  get '/subject' => 'static_pages#subject'
   get '/otoshidama' => 'static_pages#otoshidama'
   get '/fifty_meter' => 'static_pages#fifty_meter'
   get '/future' => 'static_pages#future'
