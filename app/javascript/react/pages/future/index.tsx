@@ -37,6 +37,7 @@ export default function Future() {
   return (
     <>
       <h1 className='text-4xl text-bold text-center'>しょうらいのゆめ</h1>
+      <p className='text-lg text-left'>おとこのこ👦</p>
       <ResponsiveContainer height={200} minWidth={400}>
         <Treemap 
           data={data_boy}
@@ -49,7 +50,10 @@ export default function Future() {
           content={<CustomizedContent colors={COLORS} />}>
           <Tooltip />
         </Treemap>
-
+      </ResponsiveContainer>
+      <div className='my-5'></div>
+      <p className='text-lg text-left'>おんなのこ👧</p>
+      <ResponsiveContainer height={200} minWidth={400}>
         <Treemap 
           data={data_girl}
           dataKey="割合"
@@ -62,6 +66,9 @@ export default function Future() {
           <Tooltip />
         </Treemap>
       </ResponsiveContainer>
+
+      <div className='my-5'></div>
+      <p className='text-sx text-right'> 出典： 日本FP協会 小学生『将来なりたい職業』ランキング 2023年</p>
     </>
   );
 }
