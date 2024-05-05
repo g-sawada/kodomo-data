@@ -73,18 +73,18 @@ export default function Otoshidama() {
   return (
     <>    
     <h1 className='text-4xl text-bold text-center'>おとしだま</h1>
-      <ResponsiveContainer height={400} minWidth={400}>
-        <BarChart
-          width={500}
-          height={300}
-          data={otoshidama_data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
+    <ResponsiveContainer height={400} minWidth={400}>
+      <BarChart
+        width={500}
+        height={300}
+        data={otoshidama_data}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="prefecture"/>
         <YAxis domain={[0, 20000]}/>
