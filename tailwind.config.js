@@ -7,6 +7,15 @@ module.exports = {
     './app/javascript/**/*.js',
     './app/javascript/**/*.tsx'
   ],
+  theme: {
+    fontFamily: {
+      zenMaruGothic: ["Zen Maru Gothic", "serif"],
+      body: [
+        'ヒラギノ丸ゴシック',
+        'メイリオ',
+      ]
+    }
+  },
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
