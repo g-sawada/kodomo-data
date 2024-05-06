@@ -13,8 +13,12 @@ Rails.application.config.assets.version = "1.0"
 
 #ここを追加。書き方は色々ある模様
 Rails.application.config.assets.precompile += %w(
-  react/entrypoints/fifty_meter_entry.tsx
-  react/entrypoints/future_entry.tsx
-  react/entrypoints/otoshidama_entry.tsx
-  react/entrypoints/subject_entry.tsx
+  fifty_meter_entry.js
+  fifty_meter_entry.js.map  
+  otoshidama_entry.js
+  otoshidama_entry.js.map
+  future_entry.js
+  future_entry.js.map
+  subject_entry.js.map
+  subject_entry.js
 )
