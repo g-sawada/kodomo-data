@@ -36,8 +36,8 @@ class CustomizedContent extends PureComponent {
 export default function Future() {
   return (
     <>
-      <h1 className='text-4xl text-bold text-center'>しょうらいのゆめ</h1>
-      <p className='text-lg text-left'>おとこのこ👦</p>
+      <h1 className='text-3xl text-bold text-center mb-2'>しょうらいのゆめ</h1>
+      <p className='text-xl text-left my-2'>おとこのこ👦</p>
       <ResponsiveContainer height={200} minWidth={400}>
         <Treemap 
           data={data_boy}
@@ -52,7 +52,7 @@ export default function Future() {
         </Treemap>
       </ResponsiveContainer>
       <div className='my-5'></div>
-      <p className='text-lg text-left'>おんなのこ👧</p>
+      <p className='text-xl text-left my-2'>おんなのこ👧</p>
       <ResponsiveContainer height={200} minWidth={400}>
         <Treemap 
           data={data_girl}

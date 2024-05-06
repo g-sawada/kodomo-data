@@ -72,7 +72,7 @@ import {
 export default function Otoshidama() {
   return (
     <>    
-    <h1 className='text-4xl text-bold text-center'>おとしだま</h1>
+    <h1 className='text-3xl text-bold text-center mb-2'>いっせたいあたりのおとしだま</h1>
     <ResponsiveContainer height={400} minWidth={400}>
       <BarChart
         width={500}
