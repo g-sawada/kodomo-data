@@ -2,8 +2,8 @@ class StaticPagesController < ApplicationController
   def index
   end
 
-  def population
-    render 'static_pages/population'
+  def subject
+    render 'static_pages/subject'
   end
 
   def otoshidama

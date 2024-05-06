@@ -11,24 +11,23 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body class="font-zenMaruGothic">
     <div class='container mx-auto p-4 bg-base-200' data-theme="cupcake">
       <div class='space-x-1 navbar rounded-box bg-primary text-primary-content'>
-        <div class='flex-1'>
-          <span class='text-2xl'>This is Common Navbar</span>
+        <div class='flex-1 justify-center'>
+          <h1 class='text-4xl m-2 font-bold'>こどもでーた</span>
         </div>
       </div>
-      <div class='grid grid-cols-5 gap-4 mt-3'>
-        <div class='col-span-1 rounded-xl p-4 shadow-md bg-secondary'>
-          <h2 class='text-lg font-bold mb-2'>Sidebar</h2>
-          <ul class='space-y-2'>
-            <li><%= link_to "Link 1", '/population' %></li>
+      <div class='grid grid-cols-4 gap-4 mt-3'>
+        <div class='col-span-1 rounded-xl py-4 shadow-md bg-secondary'>
+          <ul class='menu rounded-box space-y-2 text-xl font-bold'>
+            <li><%= link_to "じゅぎょうかもく", '/subject' %></li>
             <li><%= link_to "おとしだま", '/otoshidama' %></li>
             <li><%= link_to "５０めーとるそう", '/fifty_meter' %></li>
             <li><%= link_to "しょうらいのゆめ", '/future' %></li>
           </ul>
         </div>
-        <div class='col-span-4 rounded-xl p-4 shadow-md bg-base-100'>
+        <div class='col-span-3 rounded-xl p-4 shadow-md bg-base-100'>
           <%= yield %>
           <div class='h-80'></div>
         </div>

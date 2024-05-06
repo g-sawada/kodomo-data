@@ -47,7 +47,7 @@ import {
 
     return (
       <>    
-        <h1 className='text-4xl text-bold text-center'>５０めーとるそう</h1>
+        <h1 className='text-3xl text-bold text-center mb-2'>５０めーとるそう</h1>
         <ResponsiveContainer height={400} minWidth={400}>
           <LineChart
             width={500}
