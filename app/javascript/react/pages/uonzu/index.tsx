@@ -43,6 +43,7 @@ export default function Uonzu() {
         <XAxis 
           dataKey="month"
           // scale="band"   //こうすると，目盛りの位置が左にずれる
+          scale="auto"
           />
         <YAxis 
           yAxisId={1}
