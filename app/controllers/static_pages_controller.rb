@@ -17,4 +17,8 @@ class StaticPagesController < ApplicationController
   def future
     render 'static_pages/future'
   end
+
+  def uonzu
+    render 'static_pages/uonzu'
+  end
 end
