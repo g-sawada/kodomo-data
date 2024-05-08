@@ -11,6 +11,7 @@ import {
   Legend,
   Scatter,
   ResponsiveContainer,
+  Label,
 } from 'recharts';
 import { data_tokyo } from './tokyo';
 
@@ -40,10 +41,14 @@ export default function Uonzu() {
             bottom: 20,
             left: 20,
           }}
+          barGap={0}
         >
           <CartesianGrid 
-            strokeDasharray="10 30"
+            strokeDasharray=""
             vertical={false}
+            stroke="red"
+            fill="grey"
+            fillOpacity={0.2}
             />
           <XAxis 
             dataKey="month"
@@ -51,18 +56,32 @@ export default function Uonzu() {
             />
           <YAxis 
             yAxisId={1}
-            label={{value: "降水量", angle: -90, dx: -20}}
             domain={[0, 700]}
             tickCount={8}
-            />
+            >
+            <Label value="降水量" dx={-25} writingMode="tb"/>
+          </YAxis>
           <YAxis
             yAxisId={2}
             orientation="right"
-            label={{value: "気　温", angle: 90, dx: 20}}
             domain={[-30, 40]}
-            tickCount={8}/>
-          <Bar yAxisId={1} dataKey="rain" barSize={20} fill="#413ea0" />
-          <Line yAxisId={2} type="monotone" dataKey="temp_ave" stroke="red" />
+            tickCount={8}>
+            <Label value="気　温" dx={25} writingMode="tb"/>
+          </YAxis>
+          <Bar 
+            yAxisId={1}
+            dataKey="rain"
+            barSize={50}
+            fill="#413ea0"
+            stroke="red"
+            strokeWidth={0}
+            />
+          <Line 
+            yAxisId={2}
+            isAnimationActive={false}
+            type="linear"
+            dataKey="temp_ave"
+            stroke="red" />
           <Tooltip />
         </ComposedChart>
       </ResponsiveContainer>
