@@ -46,42 +46,48 @@ export default function Uonzu() {
           <CartesianGrid 
             strokeDasharray=""
             vertical={false}
-            stroke="red"
-            fill="grey"
+            stroke="gray"
+            strokeOpacity={0.5}
+            fill="white"
             fillOpacity={0.2}
             />
           <XAxis 
             dataKey="month"
             scale="auto"
+            stroke="black"
             />
           <YAxis 
             yAxisId={1}
             domain={[0, 700]}
             tickCount={8}
+            stroke="black"
             >
-            <Label value="降水量" dx={-25} writingMode="tb"/>
+            <Label value="降水量" dx={-25} writingMode="tb" fontSize={20} fill="black"/>
           </YAxis>
           <YAxis
             yAxisId={2}
             orientation="right"
             domain={[-30, 40]}
-            tickCount={8}>
-            <Label value="気　温" dx={25} writingMode="tb"/>
+            tickCount={8}
+            stroke="black">
+            <Label value="気　温" dx={25} writingMode="tb" fontSize={20} fill="black"/>
           </YAxis>
           <Bar 
             yAxisId={1}
             dataKey="rain"
             barSize={50}
-            fill="#413ea0"
-            stroke="red"
-            strokeWidth={0}
+            fill="cyan"
+            stroke="black"
+            strokeWidth={1}
             />
           <Line 
             yAxisId={2}
             isAnimationActive={false}
             type="linear"
             dataKey="temp_ave"
-            stroke="red" />
+            dot={{ r: 4 }}
+            stroke="red"
+            strokeWidth={1.5}/>
           <Tooltip />
         </ComposedChart>
       </ResponsiveContainer>
