@@ -30,19 +30,23 @@ export default function Uonzu() {
   const style = {fontFamily: "sans-serif, serif"}; //sans-serif→ゴシック，serif→明朝
   return (
     <div style={style}>
-      <ResponsiveContainer height={500} width={500}>
+      <ResponsiveContainer id="my-recharts-container" height={500} width={500}>
         <ComposedChart
+          title=""
           width={500}
           height={400}
           data={data_tokyo}
           margin={{
-            top: 20,
+            top: 50,
             right: 20,
             bottom: 20,
             left: 20,
           }}
           barGap={0}
         >
+          <text x={500 / 2} y={20} fill="black" textAnchor="middle" dominantBaseline="central">
+            <tspan fontSize="24">東京</tspan>
+          </text>
           <CartesianGrid 
             strokeDasharray=""
             vertical={false}
@@ -63,6 +67,7 @@ export default function Uonzu() {
             stroke="black"
             >
             <Label value="降水量" dx={-25} writingMode="tb" fontSize={20} fill="black"/>
+            <Label value="ラベル２" fontSize={20} fill="black"/>
           </YAxis>
           <YAxis
             yAxisId={2}
