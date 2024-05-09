@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { useState } from "react";
 import {
   ComposedChart,
   Line,
@@ -15,30 +15,26 @@ import {
 } from 'recharts';
 import { data_tokyo } from './tokyo';
 
-const customizedAxisTick = (props) => {
-  const { x, y, width, visibleTicksCount, payload } = props;
-  const _width = width / visibleTicksCount;
-  return (
-    <g transform={`translate(${x},${y})`}>
-      <foreignObject x={(_width / 2)} y={0} width={_width} height={30}>
-        {payload.value}
-      </foreignObject>
-    </g>  );
-}
-
 export default function Uonzu() {
   const annualRain = data_tokyo.reduce((total, item) => total + item.rain, 0);
-  console.log(annualRain);
   const annualAveTemp = (data_tokyo.reduce((total, item) => total + item.temp_ave, 0) / 12);
-  console.log(annualAveTemp);
+
+  const [lineDotSize, setLineDotSize] = useState(4);
+  const [barStrokeWidth, setBarStrokeWidth] = useState(1);
+  const [tempDomainMax, setTempDomainMax] = useState(40);
+
+  const handleChangeNumber = (setter) => (e) => {
+    if (e.target.value !== '') {
+      setter(Number(e.target.value));
+    }
+    console.log(e.target.value);
+  }
+
   const style = {fontFamily: "sans-serif, serif"}; //sans-serif→ゴシック，serif→明朝
   return (
     <div style={style}>
       <ResponsiveContainer id="my-recharts-container" height={500} width={500}>
         <ComposedChart
-          title=""
-          width={500}
-          height={400}
           data={data_tokyo}
           margin={{
             top: 50,
@@ -66,7 +62,7 @@ export default function Uonzu() {
             />
           <YAxis
             yAxisId={1}
-            domain={[-30, 40]}
+            domain={[-30, tempDomainMax]}
             tickCount={8}
             stroke="black">
             <Label value="気　温" dx={-25} writingMode="tb" fontSize={20} fill="black"/>
@@ -87,7 +83,7 @@ export default function Uonzu() {
             isAnimationActive={false}
             type="linear"
             dataKey="temp_ave"
-            dot={{ r: 4 }}
+            dot={{ r: lineDotSize }}
             stroke="red"
             strokeWidth={1.5}/>
           <Bar 
@@ -96,7 +92,7 @@ export default function Uonzu() {
             barSize={50}
             fill="cyan"
             stroke="black"
-            strokeWidth={1}
+            strokeWidth={barStrokeWidth}
             />
           <Tooltip />
           <text x={500 / 2} y={460} fill="black" textAnchor="middle" dominantBaseline="central">
@@ -104,6 +100,22 @@ export default function Uonzu() {
           </text>
         </ComposedChart>
       </ResponsiveContainer>
+
+      <div id="input">
+        <div>DotSize</div>
+        <input type='number' step={0.5} value={lineDotSize} onChange={handleChangeNumber(setLineDotSize)}/>
+        <p>DotSize: {lineDotSize} </p>
+      </div>
+      <div id="input2">
+        <div>BarStrokeWidth</div>
+        <input type='number' step={0.5} value={barStrokeWidth} onChange={handleChangeNumber(setBarStrokeWidth)}/>
+        <p>BarStrokeWidth: {barStrokeWidth} </p>
+      </div>
+      <div id="input3">
+        <div>TempMax</div>
+          <input type='number' step={5} value={tempDomainMax} onChange={handleChangeNumber(setTempDomainMax)}/>
+          <p>TempMax: {tempDomainMax} </p>
+      </div>
     </div>
   );
 }
