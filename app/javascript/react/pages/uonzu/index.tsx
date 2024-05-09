@@ -27,6 +27,10 @@ const customizedAxisTick = (props) => {
 }
 
 export default function Uonzu() {
+  const annualRain = data_tokyo.reduce((total, item) => total + item.rain, 0);
+  console.log(annualRain);
+  const annualAveTemp = (data_tokyo.reduce((total, item) => total + item.temp_ave, 0) / 12);
+  console.log(annualAveTemp);
   const style = {fontFamily: "sans-serif, serif"}; //sans-serif→ゴシック，serif→明朝
   return (
     <div style={style}>
@@ -39,7 +43,7 @@ export default function Uonzu() {
           margin={{
             top: 50,
             right: 20,
-            bottom: 20,
+            bottom: 60,
             left: 20,
           }}
           barGap={0}
@@ -60,40 +64,44 @@ export default function Uonzu() {
             scale="auto"
             stroke="black"
             />
-          <YAxis 
+          <YAxis
             yAxisId={1}
+            domain={[-30, 40]}
+            tickCount={8}
+            stroke="black">
+            <Label value="気　温" dx={-25} writingMode="tb" fontSize={20} fill="black"/>
+            <Label value="(°Ｃ)" fontSize={12} fill="black" position="insideTopLeft" dx={20} dy={-30}/>
+          </YAxis>
+          <YAxis 
+            yAxisId={2}
+            orientation="right"
             domain={[0, 700]}
             tickCount={8}
             stroke="black"
             >
-            <Label value="降水量" dx={-25} writingMode="tb" fontSize={20} fill="black"/>
-            <Label value="ラベル２" fontSize={20} fill="black"/>
+            <Label value="降水量" dx={25} writingMode="tb" fontSize={20} fill="black"/>
+            <Label value="(mm)" fontSize={12} fill="black" position="insideTopLeft" dx={7} dy={-30}/>
           </YAxis>
-          <YAxis
-            yAxisId={2}
-            orientation="right"
-            domain={[-30, 40]}
-            tickCount={8}
-            stroke="black">
-            <Label value="気　温" dx={25} writingMode="tb" fontSize={20} fill="black"/>
-          </YAxis>
-          <Bar 
-            yAxisId={1}
-            dataKey="rain"
-            barSize={50}
-            fill="cyan"
-            stroke="black"
-            strokeWidth={1}
-            />
           <Line 
-            yAxisId={2}
+            yAxisId={1}
             isAnimationActive={false}
             type="linear"
             dataKey="temp_ave"
             dot={{ r: 4 }}
             stroke="red"
             strokeWidth={1.5}/>
+          <Bar 
+            yAxisId={2}
+            dataKey="rain"
+            barSize={50}
+            fill="cyan"
+            stroke="black"
+            strokeWidth={1}
+            />
           <Tooltip />
+          <text x={500 / 2} y={460} fill="black" textAnchor="middle" dominantBaseline="central">
+              <tspan fontSize="16">年平均気温: {annualAveTemp.toFixed(1)}°C，年間降水量: {annualRain.toFixed(1)}mm </tspan>
+          </text>
         </ComposedChart>
       </ResponsiveContainer>
     </div>
