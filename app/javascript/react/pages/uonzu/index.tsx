@@ -14,6 +14,7 @@ import {
   Label,
 } from 'recharts';
 import { data_tokyo } from './tokyo';
+import { convertImage } from './convertImage';
 
 export default function Uonzu() {
   const annualRain = data_tokyo.reduce((total, item) => total + item.rain, 0);
@@ -43,7 +44,9 @@ export default function Uonzu() {
             left: 20,
           }}
           barGap={0}
+          id="my-recharts"
         >
+          <rect width="100%" height="100%" fill="white" />
           <text x={500 / 2} y={20} fill="black" textAnchor="middle" dominantBaseline="central">
             <tspan fontSize="24">東京</tspan>
           </text>
@@ -116,6 +119,11 @@ export default function Uonzu() {
           <input type='number' step={5} value={tempDomainMax} onChange={handleChangeNumber(setTempDomainMax)}/>
           <p>TempMax: {tempDomainMax} </p>
       </div>
+      <div>
+        <button type="button" className="btn" onClick={convertImage}>画像に変換</button>
+      </div>
+      <div>ここにImage</div>
+      <img alt="" id="output" />
     </div>
   );
 }
