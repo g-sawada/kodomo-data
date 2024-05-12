@@ -18,9 +18,11 @@ RUN apt-get update -qq && apt-get install -y build-essential libssl-dev nodejs y
 RUN mkdir /myapp
 WORKDIR /myapp
 
-# bundlerのインストール
-RUN gem install bundler
+# 本番環境ではこちらでbundle install
+COPY ./Gemfile /myapp/Gemfile
+COPY ./Gemfile.lock /myapp/Gemfile.lock
 
+RUN bundle install
 COPY . /myapp
 
 COPY start.sh /start.sh
