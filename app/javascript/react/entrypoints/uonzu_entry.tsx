@@ -4,6 +4,7 @@ import Uonzu from '../pages/uonzu';
 
 const uonzuContainer = document.getElementById('uonzu-root');
 if (uonzuContainer) {
+  console.log('uonzu found!!!')
   const uonzuRoot = createRoot(uonzuContainer);
   uonzuRoot.render(<Uonzu />);
 } else {

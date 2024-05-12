@@ -49,8 +49,8 @@ COPY package.json /$APP_NAME/package.json
 # ローカルのアプリケーションの全てのファイルとディレクトリをコピー
 COPY . /$APP_NAME/
 
-# 一時的なSECRET_KEY_BASEを生成し,それを仕様してアセットのプリコンパイルとクリーニングを行う
-RUN SECRET_KEY_BASE="$(bundle exec rake secret)" bin/rails assets:precompile assets:clean \
+# 一時的なSECRET_KEY_BASEを生成し,それを使用してアセットのプリコンパイルとクリーニングを行う
+RUN SECRET_KEY_BASE="$(bundle exec rails secret)" bin/rails assets:precompile assets:clean \
 # package.jsonに記載されたパッケージをインストール。開発依存を除外し，yarn.lockは変更しないことを保証
 && yarn install --production --frozen-lockfile \
 # yarnのキャッシュをクリーニング
@@ -59,9 +59,14 @@ RUN SECRET_KEY_BASE="$(bundle exec rake secret)" bin/rails assets:precompile ass
 && rm -rf /$APP_NAME/node_modules /$APP_NAME/tmp/cache
 
 # entrypoint.shのコピーと実行（db:migrateと, rails s）
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+# heroku run bash時にpumaが起動してしまうので，rails sはCMDで実行
+
+
+# COPY entrypoint.sh /usr/bin/
+# RUN chmod +x /usr/bin/entrypoint.sh
+# ENTRYPOINT ["entrypoint.sh"]
 
 # コンテナの3000番ポートを開放
 EXPOSE 3000
+
+CMD [ "sh", "-c", "rm -f tmp/pids/server.pid && bin/rails s" ]
